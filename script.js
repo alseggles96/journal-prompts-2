@@ -1,9 +1,10 @@
 function generatePrompt() {
     const prompts = [
-        "What’s your favorite thing to do on a rainy day?",
+        "Whats your favorite thing to do on a rainy day?",
+        "What is something that drives you?"
         "If you could be any animal, what would you be and why?",
         "Write about a time you made someone laugh.",
-        "What’s a superpower you wish you had?",
+        "Whats a superpower you wish you had?",
         "Describe your dream adventure!"
     ];
     
