@@ -1,7 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Marker Felt, fantasy;
     text-align: center;
-    background-color: #f0f8ff;
+    background-color: #8FBC8F;
 }
 
 h1 {
@@ -11,14 +11,14 @@ h1 {
 button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4CAF50;
+    background-color: #5F9EA0;
     color: white;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #5F9EA0;
 }
 
 p {
