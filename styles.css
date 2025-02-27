@@ -8,7 +8,7 @@ body {
 .box {
     background-color: white;
     padding: 20px;
-    width: 80%;
+    width: 40%;
     margin: 20px auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3); /* Pink shadow */
