@@ -34,9 +34,10 @@ p {
     color: #555;
 }
 .box {
-    background-color: white; /* Solid white */
-    padding: 20px; /* Space inside the box */
-    width: 80%; /* Not too wide */
-    margin: 20px auto; /* Center it and add space around */
-    border-radius: 10px; /* Soft, rounded corners */
+    background-color: white;
+    padding: 20px;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 2px solid #ff69b4; /* Hot pink border */
 }
