@@ -71,5 +71,11 @@ function generatePrompt() {
     const randomEnding = endings[Math.floor(Math.random() * endings.length)];
 
     const newPrompt = `${randomStarter} ${randomTopic} ${randomEnding}`;
-    document.getElementById("prompt").innerHTML = newPrompt;
+
+    try {
+        document.getElementById("prompt").innerHTML = newPrompt;
+    } catch (error) {
+        console.log("Oops, something went wrong!", error);
+        document.getElementById("prompt").innerHTML = "Oopsie, try again, girly!";
+    }
 }
