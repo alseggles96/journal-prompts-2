@@ -1,5 +1,5 @@
 function generatePrompt() {
-    fetch('https://api.quotable.io/random?tags=inspirational') // Fixed URL with https://
+    fetch('https://api.quotable.io/random?tags=inspirational')
         .then(response => response.json())
         .then(data => {
             const prompt = data.content;
