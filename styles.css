@@ -33,6 +33,7 @@ button {
     border: none;
     cursor: pointer;
     box-shadow: 0 0 10px rgba(255, 105, 180, 0.8); /* Glowing pink border */
+    font-family: Georgia, serif;
 }
 
 button:hover {
