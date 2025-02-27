@@ -1,7 +1,7 @@
 body {
     font-family: Georgia, serif;
     text-align: center;
-    background-color: #8FBC8F;
+    background-color: #E6E6FA;
 }
 
 h1 {
@@ -11,14 +11,14 @@ h2 {
     font-family: Georgia, serif;
     text-align: center;
     font-size: 14px;
-    background-color: #8FBC8F;
+    background-color: #333;
 }
 
 button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #5F9EA0;
-    color: white;
+    background-color: #FFF0F5;
+    color: w#333;
     border: none;
     cursor: pointer;
 }
@@ -28,6 +28,6 @@ button:hover {
 }
 
 p {
-    font-size: 18px;
+    font-size: 12px;
     color: #555;
 }
