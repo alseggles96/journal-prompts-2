@@ -79,3 +79,48 @@ function generatePrompt() {
         document.getElementById("prompt").innerHTML = "Oopsie, try again, girly!";
     }
 }
+
+// Save entry and update history
+function saveEntry() {
+    try {
+        const entry = document.getElementById("journal").value.trim();
+        if (entry === "") return; // Don’t save empty entries
+
+        // Get existing entries from localStorage (or start fresh)
+        let entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
+        const timestamp = new Date().toLocaleString(); // Add date/time
+        entries.unshift({ text: entry, time: timestamp }); // Add new entry to top
+
+        // Save back to localStorage
+        localStorage.setItem("journalEntries", JSON.stringify(entries));
+
+        // Clear the text box
+        document.getElementById("journal").value = "";
+
+        // Update the history display
+        displayHistory();
+    } catch (error) {
+        console.log("Oops, saving failed!", error);
+        alert("Oopsie, try again, girly!"); // Cute popup if it fails
+    }
+}
+
+// Show saved entries
+function displayHistory() {
+    try {
+        const historyList = document.getElementById("history-list");
+        const entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
+        historyList.innerHTML = ""; // Clear current list
+
+        entries.forEach(entry => {
+            const li = document.createElement("li");
+            li.textContent = `${entry.time}: ${entry.text}`;
+            historyList.appendChild(li);
+        });
+    } catch (error) {
+        console.log("Oops, history failed!", error);
+    }
+}
+
+// Load history when the page opens
+window.onload = displayHistory;
