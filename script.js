@@ -80,16 +80,17 @@ function generatePrompt() {
     }
 }
 
-// Save entry and update history
+// Save entry with prompt and update history
 function saveEntry() {
     try {
         const entry = document.getElementById("journal").value.trim();
+        const prompt = document.getElementById("prompt").innerHTML.trim();
         if (entry === "") return; // Don’t save empty entries
 
         // Get existing entries from localStorage (or start fresh)
         let entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
         const timestamp = new Date().toLocaleString(); // Add date/time
-        entries.unshift({ text: entry, time: timestamp }); // Add new entry to top
+        entries.unshift({ prompt: prompt, text: entry, time: timestamp }); // Save prompt too
 
         // Save back to localStorage
         localStorage.setItem("journalEntries", JSON.stringify(entries));
@@ -101,11 +102,11 @@ function saveEntry() {
         displayHistory();
     } catch (error) {
         console.log("Oops, saving failed!", error);
-        alert("Oopsie, try again, girly!"); // Cute popup if it fails
+        alert("Oopsie, try again, girly!");
     }
 }
 
-// Show saved entries
+// Show saved entries with prompts
 function displayHistory() {
     try {
         const historyList = document.getElementById("history-list");
@@ -114,7 +115,7 @@ function displayHistory() {
 
         entries.forEach(entry => {
             const li = document.createElement("li");
-            li.textContent = `${entry.time}: ${entry.text}`;
+            li.innerHTML = `<strong>${entry.time}</strong><br>Prompt: ${entry.prompt}<br>Entry: ${entry.text}`;
             historyList.appendChild(li);
         });
     } catch (error) {
@@ -122,5 +123,19 @@ function displayHistory() {
     }
 }
 
-// Load history when the page opens
-window.onload = displayHistory;
+// Clear all saved entries
+function clearHistory() {
+    try {
+        localStorage.removeItem("journalEntries");
+        displayHistory();
+    } catch (error) {
+        console.log("Oops, clearing failed!", error);
+        alert("Oopsie, try again, girly!");
+    }
+}
+
+// Load history and generate a default prompt when the page opens
+window.onload = function() {
+    displayHistory();
+    generatePrompt(); // Adds a default prompt
+};
