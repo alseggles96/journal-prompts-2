@@ -111,11 +111,11 @@ function displayHistory() {
     try {
         const historyList = document.getElementById("history-list");
         const entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
-        historyList.innerHTML = ""; // Clear current list
+        historyList.innerHTML = "";
 
         entries.forEach(entry => {
             const li = document.createElement("li");
-            li.innerHTML = `<strong>${entry.time}</strong><br>Prompt: ${entry.prompt}<br>Entry: ${entry.text}`;
+            li.innerHTML = `<details><summary>${entry.time}</summary>Prompt: ${entry.prompt}<br>Entry: ${entry.text}</details>`;
             historyList.appendChild(li);
         });
     } catch (error) {
